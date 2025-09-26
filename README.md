@@ -24,7 +24,7 @@ TF-IDF модель отбирает 1000 элементов, кладет их 
 
 ### Полный пайплайн (с обучением модели)
 ```bash
-./run.sh --sequence "MALWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAED"
+./run.sh --sequence "YOUR_SEQUENCE_HERE"
 ```
 
 
@@ -35,6 +35,5 @@ TF-IDF модель отбирает 1000 элементов, кладет их 
 
 ## Требования 
 1. 16 ГБ оперативной памяти
-2. 16 ГБ свободного места на диске
-3. Docker
+2. Docker
 
