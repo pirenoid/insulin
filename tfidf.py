@@ -23,7 +23,7 @@ def parse_fasta(filename):
     return sequences
 
 
-filename = "uniprot_sprot.fasta"
+filename = "data/uniprot_sprot.fasta"
 sequences = parse_fasta(filename)
 print(f"Первая цепочка: {sequences[0]}")
 

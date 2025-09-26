@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  dna-pipeline:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+    working_dir: /app
+    command: >
+      bash -c "
+      if [ \"$$SKIP_TRAINING\" = \"true\" ]; then
+        echo 'Пропускаем обучение TF-IDF'
+        python main.py \"$$INPUT_SEQUENCE\" && ./main
+      else
+        echo 'Запускаем полный пайплайн'
+        python tfidf.py &&
+        python main.py \"$$INPUT_SEQUENCE\" &&
+        ./main
+      fi
+      "
+    environment:
+      - INPUT_SEQUENCE=${INPUT_SEQUENCE:-MALWMRLLPLLALLALWGPDPAAAFVNQHLCGSHLVEALYLVCGERGFFYTPKTRREAED}
+      - SKIP_TRAINING=${SKIP_TRAINING:-false}
